@@ -23,7 +23,7 @@ public class PanelRoads extends JPanel
 		vehicles[1].setBounds(0, 32*5, 32, 32);
 		
 		// Add component
-		for (int i=0 ; i<MAX_VEHICLES ; i++)
+		for (int i=0 ; i<vehicles.length ; i++)
 		{
 			add((JComponent)vehicles[i]);
 		}
