@@ -1,10 +1,13 @@
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 public class FrameRacingVehicle extends JFrame
-{
+{	
 	private static final int FRAME_INNER_WIDTH = 1024;
 	private static final int FRAME_INNER_HEIGHT = 768;
+	
+	private JPanel pnlBackground;
 	
 	FrameRacingVehicle()
 	{
@@ -20,5 +23,12 @@ public class FrameRacingVehicle extends JFrame
 			FRAME_INNER_HEIGHT + getInsets().top + getInsets().bottom
 		);
 		setLayout(null);
+		
+		// Create components
+		pnlBackground = new PanelBackground();
+		pnlBackground.setBounds(0, 0, FRAME_INNER_WIDTH, FRAME_INNER_HEIGHT);
+		
+		// Add components
+		add(pnlBackground);
 	}
 }
