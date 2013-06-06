@@ -22,5 +22,6 @@ public class VehicleCar extends JComponent implements Vehicle
 			this.getLocation().x + dir[direction].x,
 			this.getLocation().y + dir[direction].y
 		);
+		this.getRootPane().repaint();
 	}
 }
