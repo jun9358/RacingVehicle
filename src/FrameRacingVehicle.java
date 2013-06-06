@@ -10,7 +10,6 @@ public class FrameRacingVehicle extends JFrame
 	private static final int FRAME_INNER_HEIGHT = 768;
 	
 	private JPanel pnlBackground;
-	private JPanel pnlRoads;
 	
 	FrameRacingVehicle()
 	{
@@ -31,12 +30,7 @@ public class FrameRacingVehicle extends JFrame
 		pnlBackground = new PanelBackground();
 		pnlBackground.setBounds(0, 0, FRAME_INNER_WIDTH, FRAME_INNER_HEIGHT);
 		
-		pnlRoads = new PanelRoads();
-		pnlRoads.setBounds(0, 32*8, PanelRoads.PANEL_WIDTH, PanelRoads.PANEL_HEIGHT);
-		pnlRoads.setBackground(new Color(0, 0, 0, 0));
-		
 		// Add components
-		add(pnlRoads);
 		add(pnlBackground);
 	}
 }
