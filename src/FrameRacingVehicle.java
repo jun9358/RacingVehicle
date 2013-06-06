@@ -33,7 +33,7 @@ public class FrameRacingVehicle extends JFrame
 		
 		pnlRoads = new PanelRoads();
 		pnlRoads.setBounds(0, 32*8, PanelRoads.PANEL_WIDTH, PanelRoads.PANEL_HEIGHT);
-		pnlRoads.setBackground(Color.RED);
+		pnlRoads.setBackground(new Color(0, 0, 0, 0));
 		
 		// Add components
 		add(pnlRoads);
