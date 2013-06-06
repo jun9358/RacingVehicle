@@ -24,7 +24,7 @@ public class FrameRacingVehicle extends JFrame
 			FRAME_INNER_WIDTH + getInsets().left + getInsets().right,
 			FRAME_INNER_HEIGHT + getInsets().top + getInsets().bottom
 		);
-		setLayout(null);
+		setLayout(null);	// This enable free locating using setBounds or setLocation.
 		
 		// Create components
 		pnlBackground = new PanelBackground();

@@ -13,7 +13,7 @@ public class PanelRoads extends JPanel
 	public PanelRoads()
 	{
 		// Set properties
-		setLayout(null);
+		setLayout(null);	// This enable free locating using setBounds or setLocation.
 		
 		// Create component
 		vehicles[0] = new VehicleCar();
