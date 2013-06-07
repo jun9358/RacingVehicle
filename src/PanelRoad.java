@@ -53,4 +53,14 @@ public class PanelRoad extends JPanel
 		
 		this.revalidate();
 	}
+	
+	public void hideControlComponents()
+	{
+		cmbVehicle.setVisible(false);
+	}
+	
+	public void showControlComponents()
+	{
+		cmbVehicle.setVisible(true);
+	}
 }

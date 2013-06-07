@@ -53,6 +53,8 @@ public class ButtonStart extends JButton implements MouseListener
 		
 		Timer tmrMover = new Timer(delay, new TimerListener());
 		tmrMover.start();
+		
+		parent.hideControlComponents();
 	}
 
 	@Override

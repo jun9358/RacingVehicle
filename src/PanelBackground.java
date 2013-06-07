@@ -57,4 +57,22 @@ public class PanelBackground extends JPanel
 	{
 		return pnlRoads[idxRoad].getSelectedVehicleIndex();
 	}
+	
+	public void hideControlComponents()
+	{
+		for (int i=0 ; i<pnlRoads.length ; i++)
+		{
+			pnlRoads[i].hideControlComponents();
+		}
+		btnStart.setVisible(false);
+	}
+	
+	public void showControlComponents()
+	{
+		for (int i=0 ; i<pnlRoads.length ; i++)
+		{
+			pnlRoads[i].showControlComponents();
+		}
+		btnStart.setVisible(true);
+	}
 }
