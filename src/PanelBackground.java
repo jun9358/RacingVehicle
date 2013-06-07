@@ -23,8 +23,8 @@ public class PanelBackground extends JPanel
 	
 	private Vehicle vehicles[][] = 
 	{
-		{new VehicleCar(1), new VehicleCar2(2)},
-		{new VehicleCar(1), new VehicleCar2(2)}
+		{new VehicleGoogle(1), new VehicleCar2(2)},
+		{new VehicleGoogle(1), new VehicleCar2(2)}
 	};
 	
 	public PanelBackground()
@@ -42,7 +42,7 @@ public class PanelBackground extends JPanel
 			pnlRoads[i].setLocation(0, 32*9 + 32*4*i);
 			pnlRoads[i].setBackground(new Color(0, 0, 0, 0));	// last parameter is to transparent background.
 		}
-
+		
 		btnStart = new ButtonStart(vehicles);
 		btnStart.setLocation(32*13, 32*18);
 		

@@ -54,7 +54,7 @@ public class PanelRoad extends JPanel
 		// Add new vehicle
 		Vehicle newVehicle = vehicles[cmbVehicle.getSelectedIndex()];
 		this.add((JComponent)newVehicle);
-		newVehicle.setLocation(0, 32);
+		newVehicle.setLocation(32*3 - newVehicle.getBounds().width, 0);
 		
 		// Set nowVehicle to newVehicle
 		nowVehicle = newVehicle;
