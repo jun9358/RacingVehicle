@@ -1,10 +1,13 @@
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.Timer;
 
 
 public class ButtonStart extends JButton implements MouseListener
@@ -33,6 +36,22 @@ public class ButtonStart extends JButton implements MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
+		final int delay = 1;
+		
+		// Define class
+		class TimerListener implements ActionListener
+		{
+			public void actionPerformed(ActionEvent event)
+			{
+				for (int i=0 ; i<vehicles.length ; i++)
+				{
+					vehicles[i].move(Vehicle.DIR_EAST);
+				}
+			}
+		}
+		
+		Timer tmrMover = new Timer(delay, new TimerListener());
+		tmrMover.start();
 	}
 
 	@Override
