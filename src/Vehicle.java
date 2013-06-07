@@ -13,7 +13,7 @@ public interface Vehicle
 		new Point(00, -1)	// North
 	};
 	public static final int DIR_EAST = 0;
-	public static final int DIR_WSET = 1;
+	public static final int DIR_WEST = 1;
 	public static final int DIR_SOUTH = 2;
 	public static final int DIR_NORTH = 3;
 	
