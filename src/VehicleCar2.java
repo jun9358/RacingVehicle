@@ -10,8 +10,12 @@ public class VehicleCar2 extends JComponent implements Vehicle
 	private static final int VEHICLE_WIDTH = 32;
 	private static final int VEHICLE_HEIGHT = 32;
 	
-	public VehicleCar2()
+	private int speed;
+	
+	public VehicleCar2(int _speed)
 	{
+		speed = _speed;
+		
 		// Set size
 		setSize(VEHICLE_WIDTH, VEHICLE_HEIGHT);
 	}
@@ -31,8 +35,8 @@ public class VehicleCar2 extends JComponent implements Vehicle
 	{
 		this.setLocation
 		(
-			this.getLocation().x + dir[direction].x,
-			this.getLocation().y + dir[direction].y
+			this.getLocation().x + dir[direction].x*speed,
+			this.getLocation().y + dir[direction].y*speed
 		);
 		
 		// Afterimage is remained, so repaint that part.
