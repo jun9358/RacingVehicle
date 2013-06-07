@@ -1,5 +1,6 @@
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 public interface Vehicle
 {
@@ -20,4 +21,5 @@ public interface Vehicle
 	public void paintComponent(Graphics g);
 	public void setBounds(int x, int y, int width, int height);
 	public void move(int direction);
+	public Rectangle getBounds();
 }

@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import javax.swing.JComponent;
 
@@ -30,5 +31,10 @@ public class VehicleCar extends JComponent implements Vehicle
 			this.getLocation().y + dir[direction].y
 		);
 		this.getRootPane().repaint();
+	}
+	
+	public Rectangle getBounds()
+	{
+		return super.getBounds();
 	}
 }
