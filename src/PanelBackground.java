@@ -125,18 +125,18 @@ public class PanelBackground extends JPanel
 						(vehicles[1][selectedIndex[1]].getBounds().x +
 						vehicles[1][selectedIndex[1]].getBounds().width))
 					{
-						JOptionPane.showMessageDialog(null, "Player1 win!");
+						JOptionPane.showMessageDialog(parent, "Player1 win!");
 					}
 					else if ((vehicles[0][selectedIndex[0]].getBounds().x +
 							vehicles[0][selectedIndex[0]].getBounds().width) <
 							(vehicles[1][selectedIndex[1]].getBounds().x +
 							vehicles[1][selectedIndex[1]].getBounds().width))
 					{
-						JOptionPane.showMessageDialog(null, "Player2 win!");
+						JOptionPane.showMessageDialog(parent, "Player2 win!");
 					}
 					else
 					{
-						JOptionPane.showMessageDialog(null, "Draw!");
+						JOptionPane.showMessageDialog(parent, "Draw!");
 					}
 				}
 			}
@@ -151,6 +151,14 @@ public class PanelBackground extends JPanel
 	public void stopRacing()
 	{
 		tmrMover.stop();
+		
+		for (int i=0 ; i<vehicles.length ; i++)
+		{
+			for (int j=0 ; j<vehicles[i].length ; j++)
+			{
+				vehicles[i][j].setBounds(0, 30, 32, 32);
+			}
+		}
 		
 		showControlComponents();
 	}
