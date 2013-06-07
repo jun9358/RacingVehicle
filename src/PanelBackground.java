@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -19,17 +20,6 @@ public class PanelBackground extends JPanel
 	private JButton btnStart;
 	
 	private Timer tmrMover;
-	// Define class
-	class TimerListener implements ActionListener
-	{
-		public void actionPerformed(ActionEvent event)
-		{
-			for (int i=0 ; i<vehicles.length ; i++)
-			{
-				vehicles[i][getSelectedVehicleIndex(i)].move(Vehicle.DIR_EAST);
-			}
-		}
-	}
 	
 	private Vehicle vehicles[][] = 
 	{
@@ -95,6 +85,62 @@ public class PanelBackground extends JPanel
 	public void startRacing()
 	{
 		final int delay = 1;
+		final PanelBackground parent = this;
+		
+		// Define class
+		class TimerListener implements ActionListener
+		{
+			private boolean isStop;
+			private int selectedIndex[];
+			
+			public TimerListener()
+			{
+				selectedIndex = new int[vehicles.length];
+				for (int i=0 ; i<selectedIndex.length ; i++)
+				{
+					selectedIndex[i] = getSelectedVehicleIndex(i);
+				}
+			}
+			
+			public void actionPerformed(ActionEvent event)
+			{
+				for (int i=0 ; i<vehicles.length ; i++)
+				{
+					vehicles[i][getSelectedVehicleIndex(i)].move(Vehicle.DIR_EAST);
+					
+					// Check this vehicle reach the finish line.
+					if (parent.getBounds().width <=
+						vehicles[i][selectedIndex[i]].getBounds().x +
+						vehicles[i][selectedIndex[i]].getBounds().width)
+					{
+						parent.stopRacing();
+						isStop = true;
+					}
+				}
+				
+				if (isStop)
+				{
+					if ((vehicles[0][selectedIndex[0]].getBounds().x +
+						vehicles[0][selectedIndex[0]].getBounds().width) >
+						(vehicles[1][selectedIndex[1]].getBounds().x +
+						vehicles[1][selectedIndex[1]].getBounds().width))
+					{
+						JOptionPane.showMessageDialog(null, "Player1 win!");
+					}
+					else if ((vehicles[0][selectedIndex[0]].getBounds().x +
+							vehicles[0][selectedIndex[0]].getBounds().width) <
+							(vehicles[1][selectedIndex[1]].getBounds().x +
+							vehicles[1][selectedIndex[1]].getBounds().width))
+					{
+						JOptionPane.showMessageDialog(null, "Player2 win!");
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "Draw!");
+					}
+				}
+			}
+		}
 		
 		tmrMover = new Timer(delay, new TimerListener());
 		tmrMover.start();
