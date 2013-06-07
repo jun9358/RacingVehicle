@@ -15,12 +15,9 @@ public class ButtonStart extends JButton implements MouseListener
 	private Image imgMouseout;
 	private Image imgMouseover;
 	private boolean isOver;
-	private Vehicle vehicles[][];
 	
 	public ButtonStart(Vehicle _vehicles[][])
 	{
-		vehicles = _vehicles;
-		
 		imgMouseout = new ImageIcon("res/flag_mouseout.png").getImage();
 		imgMouseover = new ImageIcon("res/flag_mouseover.png").getImage();
 		this.setBorder(null);
