@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class FrameRacingVehicle extends JFrame
 {	
 	private static final int FRAME_INNER_WIDTH = 1024;
-	private static final int FRAME_INNER_HEIGHT = 768;
+	private static final int FRAME_INNER_HEIGHT = 640;
 	
 	private JPanel pnlBackground;
 	
