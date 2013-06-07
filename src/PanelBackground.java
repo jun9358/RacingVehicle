@@ -138,6 +138,15 @@ public class PanelBackground extends JPanel
 					{
 						JOptionPane.showMessageDialog(parent, "Draw!");
 					}
+					
+					// Init
+					for (int i=0 ; i<vehicles.length ; i++)
+					{
+						for (int j=0 ; j<vehicles[i].length ; j++)
+						{
+							vehicles[i][j].setBounds(0, 32, 32, 32);
+						}
+					}
 				}
 			}
 		}
@@ -151,14 +160,6 @@ public class PanelBackground extends JPanel
 	public void stopRacing()
 	{
 		tmrMover.stop();
-		
-		for (int i=0 ; i<vehicles.length ; i++)
-		{
-			for (int j=0 ; j<vehicles[i].length ; j++)
-			{
-				vehicles[i][j].setBounds(0, 30, 32, 32);
-			}
-		}
 		
 		showControlComponents();
 	}
