@@ -12,12 +12,18 @@ import javax.swing.Timer;
 
 public class ButtonStart extends JButton implements MouseListener
 {
+	public static final int BUTTON_WIDTH = 32*6;
+	public static final int BUTTON_HEIGHT = 32*3;
+	
 	private Image imgMouseout;
 	private Image imgMouseover;
 	private boolean isOver;
 	
 	public ButtonStart(Vehicle _vehicles[][])
 	{
+		// Set size
+		setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+		
 		imgMouseout = new ImageIcon("res/flag_mouseout.png").getImage();
 		imgMouseover = new ImageIcon("res/flag_mouseover.png").getImage();
 		this.setBorder(null);

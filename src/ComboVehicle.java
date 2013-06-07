@@ -7,8 +7,14 @@ import javax.swing.JComboBox;
 
 public class ComboVehicle extends JComboBox implements ActionListener
 {
+	private static final int COMBOBOX_WIDTH = 32*3;
+	private static final int COMBOBOX_HEIGHT = 32;
+	
 	public ComboVehicle()
 	{
+		// Set size
+		setSize(COMBOBOX_WIDTH, COMBOBOX_HEIGHT);
+		
 		this.addActionListener(this);
 	}
 	

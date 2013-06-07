@@ -38,12 +38,12 @@ public class PanelBackground extends JPanel
 		for (int i=0 ; i<pnlRoads.length ; i++)
 		{
 			pnlRoads[i] = new PanelRoad(vehicles[i]);
-			pnlRoads[i].setBounds(0, 32*9 + 32*4*i, PanelRoad.PANEL_WIDTH, PanelRoad.PANEL_HEIGHT);
+			pnlRoads[i].setLocation(0, 32*9 + 32*4*i);
 			pnlRoads[i].setBackground(new Color(0, 0, 0, 0));	// last parameter is to transparent background.
 		}
 		
 		btnStart = new ButtonStart(vehicles);
-		btnStart.setBounds(32*13, 32*18, 32*6, 32*3);
+		btnStart.setLocation(32*13, 32*18);
 		
 		// Add components
 		for (int i=0 ; i<pnlRoads.length ; i++)
@@ -144,7 +144,7 @@ public class PanelBackground extends JPanel
 					{
 						for (int j=0 ; j<vehicles[i].length ; j++)
 						{
-							vehicles[i][j].setBounds(0, 32, 32, 32);
+							vehicles[i][j].setLocation(0, 32);
 						}
 					}
 				}

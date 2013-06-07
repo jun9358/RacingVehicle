@@ -19,7 +19,7 @@ public interface Vehicle
 	
 	public String getName();
 	public void paintComponent(Graphics g);
-	public void setBounds(int x, int y, int width, int height);
+	public void setLocation(int x, int y);
 	public void move(int direction);
 	public Rectangle getBounds();
 }

@@ -17,6 +17,9 @@ public class PanelRoad extends JPanel
 	{
 		vehicles = _vehicles;
 		
+		// Set size
+		setSize(PANEL_WIDTH, PANEL_HEIGHT);
+		
 		// Set properties
 		setLayout(null);	// This enable free locating using setBounds or setLocation.
 		
@@ -26,7 +29,7 @@ public class PanelRoad extends JPanel
 		{
 			cmbVehicle.addItem(vehicles[i].getName());
 		}
-		cmbVehicle.setBounds(0, 32*3, 32*3, 32);
+		cmbVehicle.setLocation(0, 32*3);
 		
 		// Add component
 		add(cmbVehicle);
@@ -48,7 +51,7 @@ public class PanelRoad extends JPanel
 		
 		Vehicle newVehicle = vehicles[cmbVehicle.getSelectedIndex()];
 		this.add((JComponent)newVehicle);
-		newVehicle.setBounds(0, 32, 32, 32);
+		newVehicle.setLocation(0, 32);
 		nowVehicle = newVehicle;
 		
 		this.revalidate();
