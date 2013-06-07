@@ -150,7 +150,7 @@ public class PanelBackground extends JPanel
 					{
 						for (int j=0 ; j<vehicles[i].length ; j++)
 						{
-							vehicles[i][j].setLocation(0, 32);
+							vehicles[i][j].initVehicle();
 						}
 					}
 				}

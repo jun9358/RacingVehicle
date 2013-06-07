@@ -25,6 +25,11 @@ public class VehicleGoogle extends JComponent implements Vehicle
 	{
 		return vehicleName;
 	}
+
+	public void initVehicle()
+	{
+		setLocation(32*3 - getBounds().width, (32*3 - getBounds().height) / 2);
+	}
 	
 	public void paintComponent(Graphics g)
 	{

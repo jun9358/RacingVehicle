@@ -18,6 +18,7 @@ public interface Vehicle
 	public static final int DIR_NORTH = 3;
 	
 	public String getName();
+	public void initVehicle();
 	public void paintComponent(Graphics g);
 	public void setLocation(int x, int y);
 	public void move(int direction);
