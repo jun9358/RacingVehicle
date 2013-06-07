@@ -11,7 +11,7 @@ public class VehicleTreadwheel extends JComponent implements Vehicle
 {
 	private static final String vehicleName = "TreadWheel";
 	private static final int VEHICLE_WIDTH = 81;
-	private static final int VEHICLE_HEIGHT = 81;
+	private static final int VEHICLE_HEIGHT = 96;
 	
 	private int speed;
 	
