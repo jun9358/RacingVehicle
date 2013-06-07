@@ -1,3 +1,4 @@
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
@@ -9,7 +10,8 @@ public class PanelRoads extends JPanel
 	public static final int MAX_VEHICLES = 2;
 	
 	private Vehicle vehicles[] = new Vehicle[MAX_VEHICLES];
-		
+	private ComboVehicle cmbVehicle[] = new ComboVehicle[MAX_VEHICLES];
+	
 	public PanelRoads()
 	{
 		// Set properties
@@ -22,10 +24,17 @@ public class PanelRoads extends JPanel
 		vehicles[1] = new VehicleCar();
 		vehicles[1].setBounds(0, 32*5, 32, 32);
 		
+		cmbVehicle[0] = new ComboVehicle();
+		cmbVehicle[0].setBounds(0, 32*3, 32*3, 32);
+		
+		cmbVehicle[1] = new ComboVehicle();
+		cmbVehicle[1].setBounds(0, 32*7, 32*3, 32);
+		
 		// Add component
 		for (int i=0 ; i<vehicles.length ; i++)
 		{
 			add((JComponent)vehicles[i]);
+			add(cmbVehicle[i]);
 		}
 	}
 }
