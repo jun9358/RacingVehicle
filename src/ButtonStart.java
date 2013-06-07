@@ -15,9 +15,9 @@ public class ButtonStart extends JButton implements MouseListener
 	private Image imgMouseout;
 	private Image imgMouseover;
 	private boolean isOver;
-	private Vehicle vehicles[];
+	private Vehicle vehicles[][];
 	
-	public ButtonStart(Vehicle _vehicles[])
+	public ButtonStart(Vehicle _vehicles[][])
 	{
 		vehicles = _vehicles;
 		
@@ -45,7 +45,8 @@ public class ButtonStart extends JButton implements MouseListener
 			{
 				for (int i=0 ; i<vehicles.length ; i++)
 				{
-					vehicles[i].move(Vehicle.DIR_EAST);
+					/* TEMPORARY : move 0 index vehicle */
+					vehicles[i][0].move(Vehicle.DIR_EAST);
 				}
 			}
 		}
