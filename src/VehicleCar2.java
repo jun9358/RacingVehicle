@@ -7,10 +7,13 @@ import javax.swing.JComponent;
 public class VehicleCar2 extends JComponent implements Vehicle
 {
 	private static final String vehicleName = "Car2";
+	private static final int VEHICLE_WIDTH = 32;
+	private static final int VEHICLE_HEIGHT = 32;
 	
 	public VehicleCar2()
 	{
-		
+		// Set size
+		setSize(VEHICLE_WIDTH, VEHICLE_HEIGHT);
 	}
 	
 	public String getName()
