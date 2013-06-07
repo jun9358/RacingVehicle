@@ -9,11 +9,13 @@ public class PanelRoads extends JPanel
 	public static final int PANEL_HEIGHT = 352;
 	public static final int MAX_VEHICLES = 2;
 	
-	private Vehicle vehicles[] = new Vehicle[MAX_VEHICLES];
+	private Vehicle vehicles[];
 	private ComboVehicle cmbVehicle[] = new ComboVehicle[MAX_VEHICLES];
 	
-	public PanelRoads()
+	public PanelRoads(Vehicle _vehicles[])
 	{
+		vehicles = _vehicles;
+		
 		// Set properties
 		setLayout(null);	// This enable free locating using setBounds or setLocation.
 		
