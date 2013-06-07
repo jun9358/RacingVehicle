@@ -17,7 +17,19 @@ public class PanelBackground extends JPanel
 	private Image imgBackground;
 	private PanelRoad pnlRoads[] = new PanelRoad[MAX_VEHICLES];
 	private JButton btnStart;
+	
 	private Timer tmrMover;
+	// Define class
+	class TimerListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			for (int i=0 ; i<vehicles.length ; i++)
+			{
+				vehicles[i][getSelectedVehicleIndex(i)].move(Vehicle.DIR_EAST);
+			}
+		}
+	}
 	
 	private Vehicle vehicles[][] = 
 	{
@@ -84,21 +96,16 @@ public class PanelBackground extends JPanel
 	{
 		final int delay = 1;
 		
-		// Define class
-		class TimerListener implements ActionListener
-		{
-			public void actionPerformed(ActionEvent event)
-			{
-				for (int i=0 ; i<vehicles.length ; i++)
-				{
-					vehicles[i][getSelectedVehicleIndex(i)].move(Vehicle.DIR_EAST);
-				}
-			}
-		}
-		
 		tmrMover = new Timer(delay, new TimerListener());
 		tmrMover.start();
 		
 		hideControlComponents();
+	}
+	
+	public void stopRacing()
+	{
+		tmrMover.stop();
+		
+		showControlComponents();
 	}
 }
