@@ -24,21 +24,25 @@ public class ButtonStart extends JButton implements MouseListener
 		// Set size
 		setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 		
+		// Load image
 		imgMouseout = new ImageIcon("res/flag_mouseout.png").getImage();
 		imgMouseover = new ImageIcon("res/flag_mouseover.png").getImage();
 		this.setBorder(null);
 
+		// Set listener
 		this.addMouseListener(this);
 	}
 	
 	protected void paintComponent(Graphics g)
 	{
+		// Draw button image
 		g.drawImage(isOver?imgMouseover:imgMouseout, 0, 0, this);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
+		// Start racing~
 		((PanelBackground)this.getParent()).startRacing();
 	}
 

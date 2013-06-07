@@ -10,7 +10,7 @@ public class VehicleCar2 extends JComponent implements Vehicle
 	
 	public VehicleCar2()
 	{
-
+		
 	}
 	
 	public String getName()
@@ -20,6 +20,7 @@ public class VehicleCar2 extends JComponent implements Vehicle
 	
 	public void paintComponent(Graphics g)
 	{
+		// Draw vehicle
 		g.drawOval(0, 0, 31, 31);
 	}
 	
@@ -30,6 +31,8 @@ public class VehicleCar2 extends JComponent implements Vehicle
 			this.getLocation().x + dir[direction].x,
 			this.getLocation().y + dir[direction].y
 		);
+		
+		// Afterimage is remained, so repaint that part.
 		this.getRootPane().repaint();
 	}
 	

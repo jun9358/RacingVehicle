@@ -29,6 +29,7 @@ public class PanelBackground extends JPanel
 	
 	public PanelBackground()
 	{
+		// Load image
 		imgBackground = new ImageIcon("res/background.png").getImage();
 		
 		// Set properties
@@ -41,7 +42,7 @@ public class PanelBackground extends JPanel
 			pnlRoads[i].setLocation(0, 32*9 + 32*4*i);
 			pnlRoads[i].setBackground(new Color(0, 0, 0, 0));	// last parameter is to transparent background.
 		}
-		
+
 		btnStart = new ButtonStart(vehicles);
 		btnStart.setLocation(32*13, 32*18);
 		
@@ -68,7 +69,7 @@ public class PanelBackground extends JPanel
 	{
 		for (int i=0 ; i<pnlRoads.length ; i++)
 		{
-			pnlRoads[i].hideControlComponents();
+			pnlRoads[i].hideControlComponents();	// This hide combobox
 		}
 		btnStart.setVisible(false);
 	}
@@ -77,7 +78,7 @@ public class PanelBackground extends JPanel
 	{
 		for (int i=0 ; i<pnlRoads.length ; i++)
 		{
-			pnlRoads[i].showControlComponents();
+			pnlRoads[i].showControlComponents();	// This show combobox
 		}
 		btnStart.setVisible(true);
 	}
@@ -95,6 +96,7 @@ public class PanelBackground extends JPanel
 			
 			public TimerListener()
 			{
+				// Get selected index in combobox
 				selectedIndex = new int[vehicles.length];
 				for (int i=0 ; i<selectedIndex.length ; i++)
 				{
@@ -118,8 +120,10 @@ public class PanelBackground extends JPanel
 					}
 				}
 				
+				// If timer is stop(racing ended)...
 				if (isStop)
 				{
+					// Player1 win
 					if ((vehicles[0][selectedIndex[0]].getBounds().x +
 						vehicles[0][selectedIndex[0]].getBounds().width) >
 						(vehicles[1][selectedIndex[1]].getBounds().x +
@@ -127,6 +131,7 @@ public class PanelBackground extends JPanel
 					{
 						JOptionPane.showMessageDialog(parent, "Player1 win!");
 					}
+					// Player2 win
 					else if ((vehicles[0][selectedIndex[0]].getBounds().x +
 							vehicles[0][selectedIndex[0]].getBounds().width) <
 							(vehicles[1][selectedIndex[1]].getBounds().x +
@@ -134,6 +139,7 @@ public class PanelBackground extends JPanel
 					{
 						JOptionPane.showMessageDialog(parent, "Player2 win!");
 					}
+					// Draw
 					else
 					{
 						JOptionPane.showMessageDialog(parent, "Draw!");

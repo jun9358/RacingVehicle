@@ -15,6 +15,7 @@ public class ComboVehicle extends JComboBox implements ActionListener
 		// Set size
 		setSize(COMBOBOX_WIDTH, COMBOBOX_HEIGHT);
 		
+		// Set listener
 		this.addActionListener(this);
 	}
 	
@@ -22,14 +23,16 @@ public class ComboVehicle extends JComboBox implements ActionListener
 	{
 		super.paintComponent(g);
 		
+		// If combobox folded, some background removed. So repaint that
 		this.getRootPane().repaint();
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (this.getParent() != null)
+		if (this.getParent() != null)	// In loading, this.getParent() is not set.
 		{
+			// Change vehicle
 			((PanelRoad)this.getParent()).refreshVehicle();
 		}
 	}

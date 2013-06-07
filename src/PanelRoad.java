@@ -34,6 +34,7 @@ public class PanelRoad extends JPanel
 		// Add component
 		add(cmbVehicle);
 		
+		// Set default vehicle
 		refreshVehicle();
 	}
 	
@@ -44,16 +45,21 @@ public class PanelRoad extends JPanel
 	
 	public void refreshVehicle()
 	{
-		if (nowVehicle != null)
+		if (nowVehicle != null)	// In first, nowVehicle is null.
 		{
+			// Remove existing vehicle
 			this.remove((JComponent)nowVehicle);
 		}
 		
+		// Add new vehicle
 		Vehicle newVehicle = vehicles[cmbVehicle.getSelectedIndex()];
 		this.add((JComponent)newVehicle);
 		newVehicle.setLocation(0, 32);
+		
+		// Set nowVehicle to newVehicle
 		nowVehicle = newVehicle;
 		
+		// Reload component
 		this.revalidate();
 	}
 	
