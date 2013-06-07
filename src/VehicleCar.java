@@ -4,10 +4,17 @@ import javax.swing.JComponent;
 
 
 public class VehicleCar extends JComponent implements Vehicle
-{	
+{
+	private static final String vehicleName = "Car";
+	
 	public VehicleCar()
 	{
 
+	}
+	
+	public String getName()
+	{
+		return vehicleName;
 	}
 	
 	public void paintComponent(Graphics g)
