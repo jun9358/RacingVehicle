@@ -8,8 +8,8 @@ import javax.swing.JComponent;
 public class VehicleGoogle extends JComponent implements Vehicle
 {
 	private static final String vehicleName = "Google";
-	private static final int VEHICLE_WIDTH = 64;
-	private static final int VEHICLE_HEIGHT = 96;
+	private static final int VEHICLE_WIDTH = 32;
+	private static final int VEHICLE_HEIGHT = 80;
 	
 	private int speed;
 	
