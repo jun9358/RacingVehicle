@@ -36,25 +36,7 @@ public class ButtonStart extends JButton implements MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
-		final PanelBackground parent = (PanelBackground)this.getParent();
-		final int delay = 1;
-		
-		// Define class
-		class TimerListener implements ActionListener
-		{
-			public void actionPerformed(ActionEvent event)
-			{
-				for (int i=0 ; i<vehicles.length ; i++)
-				{
-					vehicles[i][parent.getSelectedVehicleIndex(i)].move(Vehicle.DIR_EAST);
-				}
-			}
-		}
-		
-		Timer tmrMover = new Timer(delay, new TimerListener());
-		tmrMover.start();
-		
-		parent.hideControlComponents();
+		((PanelBackground)this.getParent()).startRacing();
 	}
 
 	@Override

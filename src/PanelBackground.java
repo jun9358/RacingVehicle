@@ -1,10 +1,13 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 
 public class PanelBackground extends JPanel
@@ -14,6 +17,7 @@ public class PanelBackground extends JPanel
 	private Image imgBackground;
 	private PanelRoad pnlRoads[] = new PanelRoad[MAX_VEHICLES];
 	private JButton btnStart;
+	private Timer tmrMover;
 	
 	private Vehicle vehicles[][] = 
 	{
@@ -74,5 +78,27 @@ public class PanelBackground extends JPanel
 			pnlRoads[i].showControlComponents();
 		}
 		btnStart.setVisible(true);
+	}
+	
+	public void startRacing()
+	{
+		final int delay = 1;
+		
+		// Define class
+		class TimerListener implements ActionListener
+		{
+			public void actionPerformed(ActionEvent event)
+			{
+				for (int i=0 ; i<vehicles.length ; i++)
+				{
+					vehicles[i][getSelectedVehicleIndex(i)].move(Vehicle.DIR_EAST);
+				}
+			}
+		}
+		
+		tmrMover = new Timer(delay, new TimerListener());
+		tmrMover.start();
+		
+		hideControlComponents();
 	}
 }
