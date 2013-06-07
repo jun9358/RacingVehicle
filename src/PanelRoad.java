@@ -34,6 +34,11 @@ public class PanelRoad extends JPanel
 		refreshVehicle();
 	}
 	
+	public int getSelectedVehicleIndex()
+	{
+		return cmbVehicle.getSelectedIndex();
+	}
+	
 	public void refreshVehicle()
 	{
 		if (nowVehicle != null)

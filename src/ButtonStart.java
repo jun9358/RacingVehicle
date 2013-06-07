@@ -36,6 +36,7 @@ public class ButtonStart extends JButton implements MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
+		final PanelBackground parent = (PanelBackground)this.getParent();
 		final int delay = 1;
 		
 		// Define class
@@ -45,8 +46,7 @@ public class ButtonStart extends JButton implements MouseListener
 			{
 				for (int i=0 ; i<vehicles.length ; i++)
 				{
-					/* TEMPORARY : move 0 index vehicle */
-					vehicles[i][0].move(Vehicle.DIR_EAST);
+					vehicles[i][parent.getSelectedVehicleIndex(i)].move(Vehicle.DIR_EAST);
 				}
 			}
 		}

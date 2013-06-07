@@ -12,13 +12,13 @@ public class PanelBackground extends JPanel
 	public static final int MAX_VEHICLES = 2;
 	
 	private Image imgBackground;
-	private JPanel pnlRoads[] = new PanelRoad[MAX_VEHICLES];
+	private PanelRoad pnlRoads[] = new PanelRoad[MAX_VEHICLES];
 	private JButton btnStart;
 	
 	private Vehicle vehicles[][] = 
 	{
-		{new VehicleCar(), new VehicleCar()},
-		{new VehicleCar(), new VehicleCar()}
+		{new VehicleCar(), new VehicleCar2()},
+		{new VehicleCar(), new VehicleCar2()}
 	};
 	
 	public PanelBackground()
@@ -51,5 +51,10 @@ public class PanelBackground extends JPanel
 	{
 		// Draw background image
 		g.drawImage(imgBackground, 0, 0, this);
+	}
+	
+	public int getSelectedVehicleIndex(int idxRoad)
+	{
+		return pnlRoads[idxRoad].getSelectedVehicleIndex();
 	}
 }
