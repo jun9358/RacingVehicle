@@ -23,8 +23,8 @@ public class PanelBackground extends JPanel
 	
 	private Vehicle vehicles[][] = 
 	{
-		{new VehicleGoogle(1), new VehicleTreadwheel(2)},
-		{new VehicleIronman(1), new VehicleBus(2)}
+		{new VehicleGoogle(0), new VehicleTreadwheel(0)},
+		{new VehicleIronman(0), new VehicleBus(0)}
 	};
 	
 	public PanelBackground()
