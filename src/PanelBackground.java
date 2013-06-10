@@ -173,7 +173,7 @@ public class PanelBackground extends JPanel
 		tmrMover = new Timer(delay, new TimerMoverListener());
 		tmrMover.start();
 		
-		tmrSpeed = new Timer(delay*100, new TimerSpeedListener());
+		tmrSpeed = new Timer(delay*256, new TimerSpeedListener());
 		tmrSpeed.start();
 		
 		hideControlComponents();
@@ -182,6 +182,7 @@ public class PanelBackground extends JPanel
 	public void stopRacing()
 	{
 		tmrMover.stop();
+		tmrSpeed.stop();
 		
 		showControlComponents();
 	}
