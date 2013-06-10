@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -167,6 +168,22 @@ public class PanelBackground extends JPanel
 				{
 					speed[i] = (int)(Math.random() * 2) + 1; 
 					vehicles[i][selectedIndex[i]].setSpeed(speed[i]);
+				}
+				
+				int p = (int)(Math.random() * 101);
+				int diff = vehicles[0][selectedIndex[0]].getBounds().x -
+						   vehicles[1][selectedIndex[1]].getBounds().x;
+				
+				// Swap location
+				if (0 <= p && p < Math.abs(diff) / 10)
+				{
+					System.out.println("Swap location(" + Math.abs(diff) / 10 + "%)");
+					Rectangle tmpRect;
+					
+					tmpRect = vehicles[1][selectedIndex[1]].getBounds();
+					vehicles[1][selectedIndex[1]].setLocation(vehicles[0][selectedIndex[0]].getBounds().x,
+															  vehicles[1][selectedIndex[1]].getBounds().y);
+					vehicles[0][selectedIndex[0]].setLocation(tmpRect.x, vehicles[0][selectedIndex[0]].getBounds().y);
 				}
 			}
 		}
