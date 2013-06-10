@@ -101,6 +101,7 @@ public class PanelBackground extends JPanel
 				for (int i=0 ; i<selectedIndex.length ; i++)
 				{
 					selectedIndex[i] = getSelectedVehicleIndex(i);
+					vehicles[i][selectedIndex[i]].setSpeed((int)(Math.random() * 2)+1);
 				}
 			}
 			
