@@ -26,6 +26,11 @@ public class VehicleIronman extends JComponent implements Vehicle {
 	public String getName() {
 		return vehicleName;
 	}
+	
+	public void setSpeed(int _speed)
+	{
+		speed = _speed;
+	}
 
 	public void initVehicle() {
 		setLocation(32 * 3 - VEHICLE_WIDTH, (32 * 3 - VEHICLE_HEIGHT) / 2);

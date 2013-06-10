@@ -25,6 +25,11 @@ public class VehicleGoogle extends JComponent implements Vehicle
 	{
 		return vehicleName;
 	}
+	
+	public void setSpeed(int _speed)
+	{
+		speed = _speed;
+	}
 
 	public void initVehicle()
 	{

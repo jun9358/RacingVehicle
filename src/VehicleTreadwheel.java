@@ -28,6 +28,11 @@ public class VehicleTreadwheel extends JComponent implements Vehicle
 		return vehicleName;
 	}
 	
+	public void setSpeed(int _speed)
+	{
+		speed = _speed;
+	}
+	
 	public void initVehicle()
 	{
 		setLocation(32*3 - VEHICLE_WIDTH, (32*3 - VEHICLE_HEIGHT) / 2);

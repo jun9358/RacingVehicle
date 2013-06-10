@@ -23,4 +23,5 @@ public interface Vehicle
 	public void setLocation(int x, int y);
 	public void move(int direction);
 	public Rectangle getBounds();
+	public void setSpeed(int _speed);
 }

@@ -25,6 +25,11 @@ public class VehicleBus extends JComponent implements Vehicle
 		setSize(VEHICLE_WIDTH, VEHICLE_HEIGHT);
 	}
 	
+	public void setSpeed(int _speed)
+	{
+		speed = _speed;
+	}
+	
 	public String getName()
 	{
 		return vehicleName;
