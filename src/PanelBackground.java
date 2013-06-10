@@ -20,6 +20,7 @@ public class PanelBackground extends JPanel
 	private JButton btnStart;
 	
 	private Timer tmrMover;
+	private Timer tmrSpeed;
 	
 	private Vehicle vehicles[][] = 
 	{
@@ -87,23 +88,24 @@ public class PanelBackground extends JPanel
 	{
 		final int delay = 1;
 		final PanelBackground parent = this;
+		final int selectedIndex[] = new int[vehicles.length];
+		final int speed[] = new int[vehicles.length];
+		
+		for (int i=0 ; i<speed.length ; i++)
+		{
+			speed[i] = (int)(Math.random() * 16) + 1;
+		}
+		
+		// Get selected index in combobox
+		for (int i=0 ; i<selectedIndex.length ; i++)
+		{
+			selectedIndex[i] = getSelectedVehicleIndex(i);
+		}
 		
 		// Define class
-		class TimerListener implements ActionListener
+		class TimerMoverListener implements ActionListener
 		{
 			private boolean isStop;
-			private int selectedIndex[];
-			
-			public TimerListener()
-			{
-				// Get selected index in combobox
-				selectedIndex = new int[vehicles.length];
-				for (int i=0 ; i<selectedIndex.length ; i++)
-				{
-					selectedIndex[i] = getSelectedVehicleIndex(i);
-					vehicles[i][selectedIndex[i]].setSpeed((int)(Math.random() * 2)+1);
-				}
-			}
 			
 			public void actionPerformed(ActionEvent event)
 			{
@@ -157,9 +159,22 @@ public class PanelBackground extends JPanel
 				}
 			}
 		}
-		
-		tmrMover = new Timer(delay, new TimerListener());
+		class TimerSpeedListener implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				for (int i=0 ; i<vehicles.length ; i++)
+				{
+					speed[i] = (int)(Math.random() * 2) + 1; 
+					vehicles[i][selectedIndex[i]].setSpeed(speed[i]);
+				}
+			}
+		}
+		tmrMover = new Timer(delay, new TimerMoverListener());
 		tmrMover.start();
+		
+		tmrSpeed = new Timer(delay*100, new TimerSpeedListener());
+		tmrSpeed.start();
 		
 		hideControlComponents();
 	}
