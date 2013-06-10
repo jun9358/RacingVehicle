@@ -11,7 +11,7 @@ import javax.swing.JComponent;
 
 public class VehicleBus extends JComponent implements Vehicle
 {
-	private static final String vehicleName = "Google";
+	private static final String vehicleName = "Bus";
 	private static final int VEHICLE_WIDTH = 81;
 	private static final int VEHICLE_HEIGHT = 40;
 	
