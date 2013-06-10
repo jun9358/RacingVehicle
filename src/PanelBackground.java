@@ -91,6 +91,7 @@ public class PanelBackground extends JPanel
 		final PanelBackground parent = this;
 		final int selectedIndex[] = new int[vehicles.length];
 		final int speed[] = new int[vehicles.length];
+		final boolean isMagnet[] = new boolean[vehicles.length];
 		
 		for (int i=0 ; i<speed.length ; i++)
 		{
@@ -127,6 +128,16 @@ public class PanelBackground extends JPanel
 				// If timer is stop(racing ended)...
 				int diff = vehicles[0][selectedIndex[0]].getBounds().x -
 						   vehicles[1][selectedIndex[1]].getBounds().x;
+				
+				// Magnet
+				if (isMagnet[0])
+				{
+					vehicles[0][getSelectedVehicleIndex(0)].setSpeed(speed[0] * 2 * (diff>0?-1:1));
+				}
+				else if (isMagnet[1])
+				{
+					vehicles[1][getSelectedVehicleIndex(1)].setSpeed(speed[1] * 2 * (diff<0?-1:1));
+				}
 				
 				if (isStop)
 				{
@@ -169,6 +180,12 @@ public class PanelBackground extends JPanel
 					vehicles[i][selectedIndex[i]].setSpeed(speed[i]);
 				}
 				
+				// Init	magnet
+				for (int i=0 ; i<isMagnet.length ; i++)
+				{
+					isMagnet[i] = false;
+				}
+				
 				int p = (int)(Math.random() * 101);
 				int diff = vehicles[0][selectedIndex[0]].getBounds().x -
 						   vehicles[1][selectedIndex[1]].getBounds().x;
@@ -183,6 +200,22 @@ public class PanelBackground extends JPanel
 					vehicles[1][selectedIndex[1]].setLocation(vehicles[0][selectedIndex[0]].getBounds().x,
 															  vehicles[1][selectedIndex[1]].getBounds().y);
 					vehicles[0][selectedIndex[0]].setLocation(tmpRect.x, vehicles[0][selectedIndex[0]].getBounds().y);
+				}
+				// Magnet
+				else if(Math.abs(diff) / 10 <= p && p < (Math.abs(diff) / 10) * 3)
+				{
+					if (0 < diff)		// Player1 is winning...
+					{
+						System.out.println("Manget 2 to 1(" +
+										(((Math.abs(diff) / 10) * 3) - (Math.abs(diff) / 10)) + "%)");
+						isMagnet[1] = true;
+					}
+					else if (0 > diff)	// Player2 is winning...
+					{
+						System.out.println("Manget 1 to 2(" +
+								(((Math.abs(diff) / 10) * 3) - (Math.abs(diff) / 10)) + "%)");
+						isMagnet[0] = true;
+					}
 				}
 			}
 		}
