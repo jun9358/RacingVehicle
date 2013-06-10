@@ -125,21 +125,20 @@ public class PanelBackground extends JPanel
 				}
 				
 				// If timer is stop(racing ended)...
+				int diff = vehicles[0][selectedIndex[0]].getBounds().x -
+						   vehicles[1][selectedIndex[1]].getBounds().x;
+				
 				if (isStop)
 				{
 					// Player1 win
-					if ((vehicles[0][selectedIndex[0]].getBounds().x +
-						vehicles[0][selectedIndex[0]].getBounds().width) >
-						(vehicles[1][selectedIndex[1]].getBounds().x +
-						vehicles[1][selectedIndex[1]].getBounds().width))
+					if (diff + vehicles[0][selectedIndex[0]].getBounds().width >
+							   vehicles[1][selectedIndex[1]].getBounds().width)
 					{
 						JOptionPane.showMessageDialog(parent, "Player1 win!");
 					}
 					// Player2 win
-					else if ((vehicles[0][selectedIndex[0]].getBounds().x +
-							vehicles[0][selectedIndex[0]].getBounds().width) <
-							(vehicles[1][selectedIndex[1]].getBounds().x +
-							vehicles[1][selectedIndex[1]].getBounds().width))
+					else if (diff + vehicles[0][selectedIndex[0]].getBounds().width <
+									vehicles[1][selectedIndex[1]].getBounds().width)
 					{
 						JOptionPane.showMessageDialog(parent, "Player2 win!");
 					}
