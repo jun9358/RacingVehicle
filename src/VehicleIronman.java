@@ -15,6 +15,7 @@ public class VehicleIronman extends JComponent implements Vehicle {
 	private static final int VEHICLE_HEIGHT = 32;
 
 	private int speed;
+	private boolean isSkill;
 
 	public VehicleIronman(int _speed) {
 		speed = _speed;
@@ -83,5 +84,18 @@ public class VehicleIronman extends JComponent implements Vehicle {
 	public Rectangle getBounds() {
 		return super.getBounds();
 	}
-
+	public boolean getIsSkill()
+	{
+		return isSkill;
+	}
+	
+	public void enableSkill()
+	{
+		isSkill = true;
+	}
+	
+	public void disableSkill()
+	{
+		isSkill = false;
+	}
 }

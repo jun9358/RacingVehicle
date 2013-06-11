@@ -129,7 +129,44 @@ public class PanelBackground extends JPanel
 				int diff = vehicles[0][selectedIndex[0]].getBounds().x -
 						   vehicles[1][selectedIndex[1]].getBounds().x;
 				
-				// Magnet
+				// Skill
+				for (int i=0 ; i<vehicles.length ; i++)
+				{
+					if (vehicles[i][selectedIndex[i]].getIsSkill())
+					{
+						switch (vehicles[i][selectedIndex[i]].getName())
+						{
+						case "Google":
+							// Magnet
+							vehicles[0][getSelectedVehicleIndex(0)].setSpeed(speed[0] * 2 * (diff>0?-1:1));
+							break;
+						case "TreadWheel":
+							// Swap location
+							Rectangle tmpRect;
+							
+							tmpRect = vehicles[1][selectedIndex[1]].getBounds();
+							vehicles[1][selectedIndex[1]].setLocation(vehicles[0][selectedIndex[0]].getBounds().x,
+																	  vehicles[1][selectedIndex[1]].getBounds().y);
+							vehicles[0][selectedIndex[0]].setLocation(tmpRect.x, vehicles[0][selectedIndex[0]].getBounds().y);
+							vehicles[0][getSelectedVehicleIndex(0)].disableSkill();
+							break;
+						case "Ironman":
+							// Booster
+							if (speed[1] == 1)
+							{
+								vehicles[1][getSelectedVehicleIndex(1)].setSpeed(speed[1] * 2);
+							}
+							break;
+						case "Bus":
+							// Slow
+							if (speed[0] == 2)
+							{
+								vehicles[1][getSelectedVehicleIndex(1)].setSpeed(speed[1] / 2);
+							}
+							break;
+						}
+					}
+				}
 				if (isMagnet[0])
 				{
 					vehicles[0][getSelectedVehicleIndex(0)].setSpeed(speed[0] * 2 * (diff>0?-1:1));
@@ -191,31 +228,29 @@ public class PanelBackground extends JPanel
 						   vehicles[1][selectedIndex[1]].getBounds().x;
 				
 				// Swap location
-				if (0 <= p && p < Math.abs(diff) / 10)
+				if (selectedIndex[0] == 0 && 0 <= p && p < Math.abs(diff) / 10)
 				{
-					System.out.println("Swap location(" + Math.abs(diff) / 10 + "%)");
-					Rectangle tmpRect;
-					
-					tmpRect = vehicles[1][selectedIndex[1]].getBounds();
-					vehicles[1][selectedIndex[1]].setLocation(vehicles[0][selectedIndex[0]].getBounds().x,
-															  vehicles[1][selectedIndex[1]].getBounds().y);
-					vehicles[0][selectedIndex[0]].setLocation(tmpRect.x, vehicles[0][selectedIndex[0]].getBounds().y);
+					System.out.println("Swap location skill affected(" + Math.abs(diff) / 10 + "%)");
+					vehicles[0][selectedIndex[0]].enableSkill();
 				}
 				// Magnet
-				else if(Math.abs(diff) / 10 <= p && p < (Math.abs(diff) / 10) * 3)
+				if (selectedIndex[0] == 1 && Math.abs(diff) / 10 <= p && p < (Math.abs(diff) / 10) * 3)
 				{
-					if (0 < diff)		// Player1 is winning...
-					{
-						System.out.println("Manget 2 to 1(" +
-										(((Math.abs(diff) / 10) * 3) - (Math.abs(diff) / 10)) + "%)");
-						isMagnet[1] = true;
-					}
-					else if (0 > diff)	// Player2 is winning...
-					{
-						System.out.println("Manget 1 to 2(" +
-								(((Math.abs(diff) / 10) * 3) - (Math.abs(diff) / 10)) + "%)");
-						isMagnet[0] = true;
-					}
+					System.out.println("Manget 1 to 2(" +
+							(((Math.abs(diff) / 10) * 3) - (Math.abs(diff) / 10)) + "%)");
+					vehicles[0][selectedIndex[1]].enableSkill();
+				}
+				// Booster
+				if (selectedIndex[1] == 0 && 0 <= p && p < 40 && diff < 0)
+				{
+					System.out.println("Bootster("  + 40 + "%)");
+					vehicles[0][selectedIndex[1]].enableSkill();					
+				}
+				// Slower
+				if (selectedIndex[1] == 1 && 0 <= p && p < 46 && diff > 0)
+				{
+					System.out.println("Slower("  + 40 + "%)");
+					vehicles[0][selectedIndex[1]].enableSkill();
 				}
 			}
 		}

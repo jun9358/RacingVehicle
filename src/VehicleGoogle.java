@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import javax.swing.JComponent;
+import javax.swing.JPanel;
 
 
 public class VehicleGoogle extends JComponent implements Vehicle
@@ -12,6 +13,7 @@ public class VehicleGoogle extends JComponent implements Vehicle
 	private static final int VEHICLE_HEIGHT = 80;
 	
 	private int speed;
+	private boolean isSkill;
 	
 	public VehicleGoogle(int _speed)
 	{
@@ -74,5 +76,27 @@ public class VehicleGoogle extends JComponent implements Vehicle
 	public Rectangle getBounds()
 	{
 		return super.getBounds();
+	}
+	
+	public void skill()
+	{
+		PanelBackground panelRoot = (PanelBackground)this.getRootPane().getContentPane();
+		
+		
+	}
+	
+	public boolean getIsSkill()
+	{
+		return isSkill;
+	}
+	
+	public void enableSkill()
+	{
+		isSkill = true;
+	}
+	
+	public void disableSkill()
+	{
+		isSkill = false;
 	}
 }

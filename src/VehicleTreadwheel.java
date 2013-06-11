@@ -14,6 +14,7 @@ public class VehicleTreadwheel extends JComponent implements Vehicle
 	private static final int VEHICLE_HEIGHT = 96;
 	
 	private int speed;
+	private boolean isSkill;
 	
 	public VehicleTreadwheel(int _speed)
 	{
@@ -76,5 +77,20 @@ public class VehicleTreadwheel extends JComponent implements Vehicle
 	public Rectangle getBounds()
 	{
 		return super.getBounds();
+	}
+	
+	public boolean getIsSkill()
+	{
+		return isSkill;
+	}
+	
+	public void enableSkill()
+	{
+		isSkill = true;
+	}
+	
+	public void disableSkill()
+	{
+		isSkill = false;
 	}
 }

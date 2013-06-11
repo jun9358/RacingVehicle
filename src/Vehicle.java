@@ -24,4 +24,7 @@ public interface Vehicle
 	public void move(int direction);
 	public Rectangle getBounds();
 	public void setSpeed(int _speed);
+	public boolean getIsSkill();
+	public void enableSkill();
+	public void disableSkill();
 }
