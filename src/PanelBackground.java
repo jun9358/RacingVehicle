@@ -223,26 +223,26 @@ public class PanelBackground extends JPanel
 						   vehicles[1][selectedIndex[1]].getBounds().x;
 				
 				// Magnet
-				if (selectedIndex[0] == 0 && diff < 0 && Math.abs(diff) / 10 <= p && p < (Math.abs(diff) / 10) * 3)
+				if (selectedIndex[0] == 0 && diff < 0 && 0 <= p && Math.abs(diff) / 1024 * 100 <= p)
 				{
 					System.out.println("Manget 1 to 2(" +
 							(((Math.abs(diff) / 10) * 3) - (Math.abs(diff) / 10)) + "%)");
-					vehicles[0][selectedIndex[1]].enableSkill();					
+					vehicles[0][selectedIndex[1]].enableSkill();
 				}
 				// Swap location
-				if (selectedIndex[0] == 1 && diff < 0 && 0 <= p && p < Math.abs(diff) / 10)
+				if (selectedIndex[0] == 1 && diff < 0 && 0 <= p && Math.abs(diff) / 1024 * 100 / 2 <= p)
 				{
 					System.out.println("Swap location skill affected(" + Math.abs(diff) / 10 + "%)");
 					vehicles[0][selectedIndex[0]].enableSkill();
 				}
 				// Booster
-				if (selectedIndex[1] == 0 && 0 <= p && p < 40 && diff < 0)
+				if (selectedIndex[1] == 0 && 0 <= p && p < 30 && diff < 0)
 				{
 					System.out.println("Bootster("  + 40 + "%)");
 					vehicles[1][selectedIndex[0]].enableSkill();
 				}
 				// Slower
-				if (selectedIndex[1] == 1 && 0 <= p && p < 46 && diff > 0)
+				if (selectedIndex[1] == 1 && 0 <= p && p < 30 && diff > 0)
 				{
 					System.out.println("Slower("  + 40 + "%)");
 					vehicles[1][selectedIndex[1]].enableSkill();
