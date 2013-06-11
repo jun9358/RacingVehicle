@@ -37,6 +37,7 @@ public class VehicleTreadwheel extends JComponent implements Vehicle
 	public void initVehicle()
 	{
 		setLocation(32*3 - VEHICLE_WIDTH, (32*3 - VEHICLE_HEIGHT) / 2);
+		speed = 0;
 	}
 	
 	public void paintComponent(Graphics g)

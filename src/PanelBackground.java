@@ -161,7 +161,7 @@ public class PanelBackground extends JPanel
 							// Slow
 							if (speed[0] == 2)
 							{
-								vehicles[1][getSelectedVehicleIndex(1)].setSpeed(speed[1] / 2);
+								vehicles[1][getSelectedVehicleIndex(1)].setSpeed(speed[0] / 2);
 							}
 							break;
 						}
@@ -205,20 +205,13 @@ public class PanelBackground extends JPanel
 			{
 				for (int i=0 ; i<vehicles.length ; i++)
 				{
-					speed[i] = (int)(Math.random() * 2) + 1; 
+					vehicles[i][selectedIndex[i]].disableSkill();
+					speed[i] = (int)(Math.random() * 2) + 1;
 					vehicles[i][selectedIndex[i]].setSpeed(speed[i]);
 				}
+				System.out.println(speed[0] + ", " + speed[1]);
 				
-				// Init	magnet
-				for (int i=0 ; i<vehicles.length ; i++)
-				{
-					for (int j=0 ; j<selectedIndex.length ; j++)
-					{
-						vehicles[i][j].disableSkill();
-					}
-				}
-				
-				int p = (int)(Math.random() * 101);
+				int p = (int)(Math.random() * 100);
 				int diff = vehicles[0][selectedIndex[0]].getBounds().x -
 						   vehicles[1][selectedIndex[1]].getBounds().x;
 				
@@ -227,7 +220,7 @@ public class PanelBackground extends JPanel
 				{
 					System.out.println("Manget 1 to 2(" +
 							(((Math.abs(diff) / 10) * 3) - (Math.abs(diff) / 10)) + "%)");
-					vehicles[0][selectedIndex[1]].enableSkill();
+					vehicles[0][selectedIndex[0]].enableSkill();
 				}
 				// Swap location
 				if (selectedIndex[0] == 1 && diff < 0 && 0 <= p && Math.abs(diff) / 1024 * 100 / 2 <= p)
@@ -239,7 +232,7 @@ public class PanelBackground extends JPanel
 				if (selectedIndex[1] == 0 && 0 <= p && p < 30 && diff < 0)
 				{
 					System.out.println("Bootster("  + 40 + "%)");
-					vehicles[1][selectedIndex[0]].enableSkill();
+					vehicles[1][selectedIndex[1]].enableSkill();
 				}
 				// Slower
 				if (selectedIndex[1] == 1 && 0 <= p && p < 30 && diff > 0)

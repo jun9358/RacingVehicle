@@ -36,6 +36,7 @@ public class VehicleGoogle extends JComponent implements Vehicle
 	public void initVehicle()
 	{
 		setLocation(32*3 - VEHICLE_WIDTH, (32*3 - VEHICLE_HEIGHT) / 2);
+		speed = 0;
 	}
 	
 	public void paintComponent(Graphics g)
@@ -76,13 +77,6 @@ public class VehicleGoogle extends JComponent implements Vehicle
 	public Rectangle getBounds()
 	{
 		return super.getBounds();
-	}
-	
-	public void skill()
-	{
-		PanelBackground panelRoot = (PanelBackground)this.getRootPane().getContentPane();
-		
-		
 	}
 	
 	public boolean getIsSkill()
