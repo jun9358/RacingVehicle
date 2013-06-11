@@ -87,7 +87,7 @@ public class PanelBackground extends JPanel
 	
 	public void startRacing()
 	{
-		final int delay = 1;
+		final int delay = 3;
 		final PanelBackground parent = this;
 		final int selectedIndex[] = new int[vehicles.length];
 		final int speed[] = new int[vehicles.length];
@@ -95,7 +95,7 @@ public class PanelBackground extends JPanel
 		
 		for (int i=0 ; i<speed.length ; i++)
 		{
-			speed[i] = (int)(Math.random() * 16) + 1;
+			speed[i] = (int)(Math.random() * 2) + 1;
 		}
 		
 		// Get selected index in combobox
@@ -167,14 +167,6 @@ public class PanelBackground extends JPanel
 						}
 					}
 				}
-				if (isMagnet[0])
-				{
-					vehicles[0][getSelectedVehicleIndex(0)].setSpeed(speed[0] * 2 * (diff>0?-1:1));
-				}
-				else if (isMagnet[1])
-				{
-					vehicles[1][getSelectedVehicleIndex(1)].setSpeed(speed[1] * 2 * (diff<0?-1:1));
-				}
 				
 				if (isStop)
 				{
@@ -218,39 +210,42 @@ public class PanelBackground extends JPanel
 				}
 				
 				// Init	magnet
-				for (int i=0 ; i<isMagnet.length ; i++)
+				for (int i=0 ; i<vehicles.length ; i++)
 				{
-					isMagnet[i] = false;
+					for (int j=0 ; j<selectedIndex.length ; j++)
+					{
+						vehicles[i][j].disableSkill();
+					}
 				}
 				
 				int p = (int)(Math.random() * 101);
 				int diff = vehicles[0][selectedIndex[0]].getBounds().x -
 						   vehicles[1][selectedIndex[1]].getBounds().x;
 				
-				// Swap location
-				if (selectedIndex[0] == 0 && 0 <= p && p < Math.abs(diff) / 10)
-				{
-					System.out.println("Swap location skill affected(" + Math.abs(diff) / 10 + "%)");
-					vehicles[0][selectedIndex[0]].enableSkill();
-				}
 				// Magnet
-				if (selectedIndex[0] == 1 && Math.abs(diff) / 10 <= p && p < (Math.abs(diff) / 10) * 3)
+				if (selectedIndex[0] == 0 && diff < 0 && Math.abs(diff) / 10 <= p && p < (Math.abs(diff) / 10) * 3)
 				{
 					System.out.println("Manget 1 to 2(" +
 							(((Math.abs(diff) / 10) * 3) - (Math.abs(diff) / 10)) + "%)");
-					vehicles[0][selectedIndex[1]].enableSkill();
+					vehicles[0][selectedIndex[1]].enableSkill();					
+				}
+				// Swap location
+				if (selectedIndex[0] == 1 && diff < 0 && 0 <= p && p < Math.abs(diff) / 10)
+				{
+					System.out.println("Swap location skill affected(" + Math.abs(diff) / 10 + "%)");
+					vehicles[0][selectedIndex[0]].enableSkill();
 				}
 				// Booster
 				if (selectedIndex[1] == 0 && 0 <= p && p < 40 && diff < 0)
 				{
 					System.out.println("Bootster("  + 40 + "%)");
-					vehicles[0][selectedIndex[1]].enableSkill();					
+					vehicles[1][selectedIndex[0]].enableSkill();
 				}
 				// Slower
 				if (selectedIndex[1] == 1 && 0 <= p && p < 46 && diff > 0)
 				{
 					System.out.println("Slower("  + 40 + "%)");
-					vehicles[0][selectedIndex[1]].enableSkill();
+					vehicles[1][selectedIndex[1]].enableSkill();
 				}
 			}
 		}
